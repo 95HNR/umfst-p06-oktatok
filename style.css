@@ -201,3 +201,31 @@ body {
     border: 2px solid var(--primary-color);
     align-items: flex-start;
 }
+
+/* Erintogombok es is-flipped osztaly forgatasa */
+.card.is-flipped .card__inner {
+    transform: rotateY(180deg);
+}
+
+.card__touch-btn {
+    display: none;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    cursor: pointer;
+    margin-top: 0.5rem;
+    align-self: center;
+}
+
+.card__touch-btn:focus-visible {
+    outline: 2px solid var(--secondary-color);
+    outline-offset: 2px;
+}
+
+@media (hover: none) {
+    .card__touch-btn {
+        display: inline-block;
+    }
+}
