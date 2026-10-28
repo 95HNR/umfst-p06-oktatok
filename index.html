@@ -12,11 +12,22 @@
 
     <header class="header">
         <h1>Gyogyszereszeti Kar</h1>
-        <p>Ismerd meg oktatoinkat es kutatasi területeiket</p>
+        <p>Ismerd meg oktatoinkat es kutatasi teruleteiket</p>
     </header>
 
     <main class="main-container">
-        <!-- A kartyak es szurok a kovetkezo lepesekben erkeznek -->
+        <!-- Szuro gombok tanszekek szerint -->
+        <nav class="filter-nav" aria-label="Tanszeki szurok">
+            <button class="filter-btn active" data-filter="all">Osszes oktato</button>
+            <button class="filter-btn" data-filter="gyogyszertan">Gyogyszertan</button>
+            <button class="filter-btn" data-filter="technologia">Gyogyszeri Technologia</button>
+            <button class="filter-btn" data-filter="kemia">Gyogyszereszeti Kemia</button>
+        </nav>
+
+        <!-- Reszponziv kartyaracs kontener -->
+        <section class="card-grid" aria-label="Oktatoi kartyak grid">
+            <!-- A 8 oktatoi kartya a kovetkezo lepesben erkezik -->
+        </section>
     </main>
 
     <script src="app.js"></script>
