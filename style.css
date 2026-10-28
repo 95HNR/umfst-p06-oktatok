@@ -170,9 +170,18 @@ body {
     border-radius: var(--border-radius);
 }
 
-/* Forgas hover-re */
-.card:hover .card__inner {
+/* Forgas hover-re es fókuszra (billentyuzetes navigacio) */
+.card:hover .card__inner,
+.card:focus-within .card__inner {
     transform: rotateY(180deg);
+}
+
+/* Link fókusz kiemelese a hatoldalon */
+.card__info a:hover,
+.card__info a:focus-visible {
+    text-decoration: underline;
+    outline: 2px solid var(--primary-color);
+    outline-offset: 2px;
 }
 
 /* Kartya elolap es hatoldal pozicionalasa */
