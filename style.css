@@ -155,3 +155,40 @@ body {
     color: var(--primary-color);
     text-decoration: none;
 }
+
+/* 3D Kartya struktura es forgatas */
+.card {
+    perspective: 1000px;
+}
+
+.card__inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    transform-style: preserve-3d;
+    border-radius: var(--border-radius);
+}
+
+/* Forgas hover-re */
+.card:hover .card__inner {
+    transform: rotateY(180deg);
+}
+
+/* Kartya elolap es hatoldal pozicionalasa */
+.card__front,
+.card__back {
+    position: absolute;
+    inset: 0;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    border-radius: var(--border-radius);
+}
+
+/* Hatoldal elforgatasa alaphelyzetben */
+.card__back {
+    transform: rotateY(180deg);
+    background-color: #ffffff;
+    border: 2px solid var(--primary-color);
+    align-items: flex-start;
+}
