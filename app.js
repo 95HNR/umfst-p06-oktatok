@@ -1,9 +1,11 @@
+// App modul az erintokepernyos kezeleshez, glare effektushoz es szurokhöz
 document.addEventListener("DOMContentLoaded", () => {
     initTouchToggle();
     initGlareEffect();
+    initDepartmentFilter();
 });
 
-// Touch kezeles (a korabbi lepesbol)
+// Erintokepernyos fordito gomb kezeles aria-pressed allapottal
 function initTouchToggle() {
     const touchBtns = document.querySelectorAll(".card__touch-btn");
 
@@ -46,6 +48,41 @@ function initGlareEffect() {
 
             card.style.setProperty("--mouse-x", `${xPercent}%`);
             card.style.setProperty("--mouse-y", `${yPercent}%`);
+        });
+    });
+}
+
+// Tanszeki szures View Transitions API-val (amennyiben tamogatott)
+function initDepartmentFilter() {
+    const filterBtns = document.querySelectorAll(".filter-btn");
+    const cards = document.querySelectorAll(".card");
+
+    filterBtns.forEach((btn) => {
+        btn.addEventListener("click", () => {
+            const filter = btn.getAttribute("data-filter");
+
+            filterBtns.forEach((b) => b.classList.remove("active"));
+            btn.classList.add("active");
+
+            const updateFilter = () => {
+                cards.forEach((card) => {
+                    const dept = card.getAttribute("data-dept");
+                    if (filter === "all" || dept === filter) {
+                        card.style.display = "block";
+                    } else {
+                        card.style.display = "none";
+                    }
+                });
+            };
+
+            // View Transitions API hasznalata az atrendezodes animalasahoz
+            if (document.startViewTransition) {
+                document.startViewTransition(() => {
+                    updateFilter();
+                });
+            } else {
+                updateFilter();
+            }
         });
     });
 }
