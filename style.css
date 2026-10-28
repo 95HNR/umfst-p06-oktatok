@@ -246,3 +246,63 @@ body {
         display: inline-block;
     }
 }
+
+/* Prefers Reduced Motion Strategia (Attunes Cross-Fade 3D Forgas Helyett) */
+@media (prefers-reduced-motion: reduce) {
+    .card {
+        animation: none;
+        opacity: 1;
+    }
+
+    .card__inner {
+        transition: none;
+        transform-style: flat;
+    }
+
+    .card:hover .card__inner,
+    .card:focus-within .card__inner,
+    .card.is-flipped .card__inner {
+        transform: none;
+    }
+
+    .card__front,
+    .card__back {
+        transition: opacity 0.4s ease-in-out;
+        backface-visibility: visible;
+        -webkit-backface-visibility: visible;
+    }
+
+    .card__front {
+        opacity: 1;
+        z-index: 2;
+    }
+
+    .card__back {
+        transform: none;
+        opacity: 0;
+        z-index: 1;
+    }
+
+    .card:hover .card__front,
+    .card:focus-within .card__front,
+    .card.is-flipped .card__front,
+    .card:hover .card__back,
+    .card:focus-within .card__back,
+    .card.is-flipped .card__back {
+        /* Az attunes kezelesebal a front es back opacity felcserelodik */
+    }
+
+    .card:hover .card__front,
+    .card:focus-within .card__front,
+    .card.is-flipped .card__front {
+        opacity: 0;
+        z-index: 1;
+    }
+
+    .card:hover .card__back,
+    .card:focus-within .card__back,
+    .card.is-flipped .card__back {
+        opacity: 1;
+        z-index: 2;
+    }
+}
