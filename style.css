@@ -39,3 +39,119 @@ body {
     max-width: 1200px;
     margin: 0 auto;
 }
+
+/* Szuro gombok stilusa */
+.filter-nav {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    margin-bottom: 2rem;
+}
+
+.filter-btn {
+    background-color: #e9ecef;
+    border: 1px solid #ced4da;
+    padding: 0.6rem 1.2rem;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 0.95rem;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.filter-btn:hover,
+.filter-btn:focus-visible {
+    background-color: var(--primary-color);
+    color: #fff;
+    outline: 2px solid var(--primary-color);
+}
+
+.filter-btn.active {
+    background-color: var(--primary-color);
+    color: #fff;
+    border-color: var(--primary-color);
+}
+
+/* Reszponziv kartyaracs (auto-fill minmax) */
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.5rem;
+    width: 100%;
+}
+
+/* Kartyak alap merete es elrendezese */
+.card {
+    height: 380px;
+}
+
+/* Elolap es hatoldal alap stilusa */
+.card__front,
+.card__back {
+    border-radius: var(--border-radius);
+    background-color: var(--card-bg);
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: var(--shadow);
+}
+
+.card__img {
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 1rem;
+    border: 3px solid var(--primary-color);
+}
+
+.card__name {
+    font-size: 1.25rem;
+    color: var(--primary-color);
+    text-align: center;
+}
+
+.card__title {
+    font-weight: 600;
+    color: var(--text-color);
+    font-size: 0.95rem;
+}
+
+.card__dept {
+    font-size: 0.85rem;
+    color: var(--text-light);
+    text-align: center;
+}
+
+.card__back-title {
+    font-size: 1.1rem;
+    color: var(--primary-color);
+    margin-bottom: 0.8rem;
+    border-bottom: 2px solid var(--secondary-color);
+    width: 100%;
+    padding-bottom: 0.3rem;
+}
+
+.card__info {
+    font-size: 0.9rem;
+    width: 100%;
+}
+
+.card__info dt {
+    font-weight: bold;
+    color: var(--secondary-color);
+    margin-top: 0.5rem;
+}
+
+.card__info dd {
+    margin-left: 0;
+    color: var(--text-color);
+    word-break: break-word;
+}
+
+.card__info a {
+    color: var(--primary-color);
+    text-decoration: none;
+}
