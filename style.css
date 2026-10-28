@@ -306,3 +306,21 @@ body {
         z-index: 2;
     }
 }
+
+/* Glare CSS valtozok es alapbeallitas */
+:root {
+    --mouse-x: 50%;
+    --mouse-y: 50%;
+}
+
+/* Fenyes Glare csillanas overlay */
+.card__glare {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: radial-gradient(circle at var(--mouse-x) var(--mouse-y),
+            rgba(255, 255, 255, 0.25) 0%,
+            rgba(255, 255, 255, 0) 60%);
+    border-radius: var(--border-radius);
+    z-index: 5;
+}
